@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import work.koreyoshi.base.exception.BaseCustomException;
+import work.koreyoshi.base.exception.HttpException;
 
 @SpringBootApplication
 @RestController
@@ -26,5 +28,10 @@ public class Application {
     @SendMail(tos = "#0", title = "#1", msg = "#2")
     public String send(String[] tos, String title, String msg){
         return "success";
+    }
+
+    @RequestMapping("/send3")
+    public String send3(String[] tos, String title, String msg){
+        throw HttpException.connectError();
     }
 }
