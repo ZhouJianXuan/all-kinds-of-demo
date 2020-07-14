@@ -1,6 +1,0 @@
-host = smtp.163.com
-port = 465
-from =
-user =
-pass =
-starttlsEnable = true

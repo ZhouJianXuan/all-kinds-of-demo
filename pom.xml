@@ -18,12 +18,14 @@
     <modules>
         <module>mail</module>
         <module>base</module>
+        <module>web</module>
     </modules>
 
     <properties>
         <hutool.version>5.3.8</hutool.version>
         <lambok.version>1.18.12</lambok.version>
         <junit.version>4.12</junit.version>
+        <mybatis.plus.version>3.3.2</mybatis.plus.version>
     </properties>
 
     <dependencies>

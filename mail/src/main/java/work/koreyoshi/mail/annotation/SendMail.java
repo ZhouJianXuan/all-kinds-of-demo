@@ -1,4 +1,4 @@
-package com.koreyoshi.mail.annotation;
+package work.koreyoshi.mail.annotation;
 
 import java.lang.annotation.*;
 

@@ -2,12 +2,12 @@ package work.koreyoshi.base.exception.handler;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
 import work.koreyoshi.base.exception.BaseCustomException;
 import work.koreyoshi.base.result.RestResult;
 
-@RestControllerAdvice(annotations = RestController.class)
+/**
+ * @author zhoujx
+ */
 @Slf4j
 public abstract class BaseExceptionHandler {
 
