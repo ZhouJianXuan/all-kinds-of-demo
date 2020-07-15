@@ -29,3 +29,49 @@
 
 ### mail
 封装一下发送Mail的工具或注解
+
+### base
+集成Jfinald的ActiveRecord操作数据库
+示例配置：
+```java
+public class _MappingKit {
+	
+	public static void mapping(ActiveRecordPlugin arp) {
+	}
+}
+
+/**
+ * 在数据库表有任何变动时，运行一下 main 方法，极速响应变化进行代码重构
+ * @author zhoujx
+ */
+public class _ModelGenerator {
+
+	public static void main(String[] args) {
+		ModelGeneratorFactory.builder()
+				.host("localhost")
+				.database("zhou")
+				.user("root")
+				.password("123456")
+				.baseModelOutputDir(PathKit.getWebRootPath() + "/src/main/java/work/koreyoshi/project/common/model/base")
+				.build().getGenerate()
+				.generate();
+	}
+}
+```
+然后在Service层继承BaseService进行开发啦，语法参考[Jfinal的model使用](http://www.jfinal.com/doc/5-3)
+```java
+@Service
+public class ProductService extends BaseService<Product> {
+
+    public static final Product DAO = new Product().dao();
+
+    @Override
+    public Model<Product> getDao() {
+        return DAO;
+    }
+
+    public List<Product> findAll() {
+        return getDao().findAll();
+    }
+}
+```
