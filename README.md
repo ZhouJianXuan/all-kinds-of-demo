@@ -75,3 +75,26 @@ public class ProductService extends BaseService<Product> {
     }
 }
 ```
+最后在启动类启动插件，参数其实可以做得更好，后面在继续完善吧！！！
+```java
+@SpringBootApplication
+@ComponentScan(basePackages = {
+    "work.koreyoshi.*"
+})
+public class Application {
+
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+        initActiveRecord();
+    }
+
+    public static void initActiveRecord() {
+        String url = "jdbc:mysql://localhost/zhou?characterEncoding=utf8&useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC";
+        DruidPlugin dp = new DruidPlugin(url, "root", "123456");
+        ActiveRecordPlugin arp = new ActiveRecordPlugin(dp);
+        _MappingKit.mapping(arp);
+        dp.start();
+        arp.start();
+    }
+}
+```
