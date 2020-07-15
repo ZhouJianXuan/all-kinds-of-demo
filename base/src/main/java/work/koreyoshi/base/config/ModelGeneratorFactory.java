@@ -24,11 +24,13 @@ public class ModelGeneratorFactory {
     private String jdbcUrl;
     private String user = "root";
     private String password = "123456";
+    private String baseModelPackageName = "work.koreyoshi.project.common.model.base";
+    private String modelPackageName = "work.koreyoshi.project.common.model";
     /**
      * base model 文件保存路径
      */
     private String baseModelOutputDir = PathKit.getWebRootPath() + "/src/main/java/work/koreyoshi/project/common/model/base";
-
+    private String modelOutputDir =  baseModelOutputDir + "/..";
     public DataSource getDataSource() {
         if (StringUtils.isEmpty(jdbcUrl)) {
             jdbcUrl = "jdbc:mysql://" + host + "/" + database + "?characterEncoding=utf8&useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC";
@@ -42,10 +44,10 @@ public class ModelGeneratorFactory {
         // 创建生成器
         Generator generator = new Generator(
                 getDataSource(),
-                "work.koreyoshi.project.common.model.base",
+                baseModelPackageName,
                 baseModelOutputDir,
-                "work.koreyoshi.project.common.model",
-                baseModelOutputDir + "/.."
+                modelPackageName,
+                modelOutputDir
         );
 
         // 配置是否生成备注

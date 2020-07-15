@@ -11,15 +11,15 @@ import work.koreyoshi.base.result.RestResult;
 @Slf4j
 public abstract class BaseExceptionHandler {
 
-    @ExceptionHandler(value = Exception.class)
-    public RestResult exceptionHandler(Exception e) {
-        log.info("异常处理");
-        return RestResult.error();
-    }
-
     @ExceptionHandler(value = BaseCustomException.class)
     public RestResult customExceptionHandler(BaseCustomException e) {
-        log.info("自定义异常处理");
+        log.info("自定义异常处理: {}", e);
         return RestResult.error(e);
+    }
+
+    @ExceptionHandler(value = Exception.class)
+    public RestResult exceptionHandler(Exception e) {
+        log.info("异常处理: {}", e);
+        return RestResult.error();
     }
 }
