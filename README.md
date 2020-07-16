@@ -1,5 +1,5 @@
 # all-kinds-of-demo
-将各种工具封装起来，方便以后使用
+将各种工具封装起来，有什么需要都可以说！！！
 ```xml
 <parent>
     <groupId>org.example</groupId>
@@ -34,12 +34,6 @@
 集成Jfinald的ActiveRecord操作数据库
 示例配置：
 ```java
-public class _MappingKit {
-	
-	public static void mapping(ActiveRecordPlugin arp) {
-	}
-}
-
 /**
  * 在数据库表有任何变动时，运行一下 main 方法，极速响应变化进行代码重构
  * @author zhoujx
@@ -52,6 +46,9 @@ public class _ModelGenerator {
 				.database("zhou")
 				.user("root")
 				.password("123456")
+				.excludedTables(new String[]{"test"})
+				.baseModelPackageName("work.koreyoshi.project.common.model.base")
+				.modelPackageName("work.koreyoshi.project.common.model")
 				.baseModelOutputDir(PathKit.getWebRootPath() + "/src/main/java/work/koreyoshi/project/common/model/base")
 				.build().getGenerate()
 				.generate();
@@ -63,34 +60,37 @@ public class _ModelGenerator {
 @Service
 public class ProductService extends BaseService<Product> {
 
-    public static final Product DAO = new Product().dao();
+    public static final Product MODEL = new Product();
 
     @Override
-    public Model<Product> getDao() {
-        return DAO;
+    public Model<Product> getModel() {
+        return MODEL;
     }
 
-    public List<Product> findAll() {
-        return getDao().findAll();
-    }
 }
 ```
-最后在启动类启动插件，参数其实可以做得更好，后面在继续完善吧！！！
+项目启动后立即启动ActiveRecord
 ```java
-@SpringBootApplication
-@ComponentScan(basePackages = {
-    "work.koreyoshi.*"
-})
-public class Application {
+@Component
+@Order(value = 1)
+public class InitActiveRecord implements ApplicationRunner {
 
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+    @Value("${active.record.jdbcUrl}")
+    private String url;
+
+    @Value("${active.record.user}")
+    private String username;
+
+    @Value("${active.record.password}")
+    private String password;
+
+    @Override
+    public void run(ApplicationArguments args){
         initActiveRecord();
     }
 
-    public static void initActiveRecord() {
-        String url = "jdbc:mysql://localhost/zhou?characterEncoding=utf8&useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC";
-        DruidPlugin dp = new DruidPlugin(url, "root", "123456");
+    public void initActiveRecord() {
+        DruidPlugin dp = new DruidPlugin(url, username, password);
         ActiveRecordPlugin arp = new ActiveRecordPlugin(dp);
         _MappingKit.mapping(arp);
         dp.start();

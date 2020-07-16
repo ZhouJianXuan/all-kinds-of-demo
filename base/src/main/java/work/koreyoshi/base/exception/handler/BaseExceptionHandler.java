@@ -13,13 +13,8 @@ public abstract class BaseExceptionHandler {
 
     @ExceptionHandler(value = BaseCustomException.class)
     public RestResult customExceptionHandler(BaseCustomException e) {
-        log.info("自定义异常处理: {}", e);
+        log.info("自定义异常处理: {}", e.getMessage());
         return RestResult.error(e);
     }
 
-    @ExceptionHandler(value = Exception.class)
-    public RestResult exceptionHandler(Exception e) {
-        log.info("异常处理: {}", e);
-        return RestResult.error();
-    }
 }
