@@ -69,7 +69,7 @@ public class ProductService extends BaseService<Product> {
 
 }
 ```
-项目启动后立即启动ActiveRecord
+添加下面的配置项，项目启动后立即启动ActiveRecord
 ```java
 @Component
 @Order(value = 1)
@@ -98,3 +98,11 @@ public class InitActiveRecord implements ApplicationRunner {
     }
 }
 ```
+
+application.properties
+```
+active.record.jdbcUrl=jdbc:mysql://localhost/zhou?characterEncoding=utf8&useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC
+active.record.user=root
+active.record.password=123456
+```
+

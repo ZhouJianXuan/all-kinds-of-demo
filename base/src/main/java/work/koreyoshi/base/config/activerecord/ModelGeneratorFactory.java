@@ -1,4 +1,4 @@
-package work.koreyoshi.base.config;
+package work.koreyoshi.base.config.activerecord;
 
 import com.jfinal.kit.PathKit;
 import com.jfinal.plugin.activerecord.dialect.Dialect;

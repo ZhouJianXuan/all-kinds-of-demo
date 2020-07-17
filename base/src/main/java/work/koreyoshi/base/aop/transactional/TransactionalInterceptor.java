@@ -12,6 +12,10 @@ public class TransactionalInterceptor  implements MethodInterceptor {
 
     Object result;
 
+    /**
+     * Does the transaction need to be rolled back
+     * @throws Throwable 将运行时的异常抛出
+     */
     @Override
     public Object invoke(MethodInvocation methodInvocation) throws Throwable {
         Db.tx(() -> {

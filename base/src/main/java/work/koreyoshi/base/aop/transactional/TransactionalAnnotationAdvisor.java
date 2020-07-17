@@ -11,6 +11,9 @@ import work.koreyoshi.base.annotation.Transactional;
 
 import javax.validation.constraints.Null;
 
+/**
+ * @author zhoujx
+ */
 public class TransactionalAnnotationAdvisor extends AbstractPointcutAdvisor implements BeanFactoryAware {
 
     private final Advice advice;

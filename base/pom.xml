@@ -32,19 +32,19 @@
         <dependency>
             <groupId>com.jfinal</groupId>
             <artifactId>activerecord</artifactId>
-            <version>4.9</version>
+            <version>${jfinal.activereaord.version}</version>
         </dependency>
         <!-- mysql 驱动 -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.16</version>
+            <version>${mysql.driver.verison}</version>
         </dependency>
         <!-- druid 数据源连接池 -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>1.0.29</version>
+            <version>${alibaba.druid.version}</version>
         </dependency>
     </dependencies>
 
