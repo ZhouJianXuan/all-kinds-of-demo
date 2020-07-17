@@ -24,3 +24,7 @@ hs_err_pid*
 /mail/target/
 /web/target/
 /base/target/
+/all-kinds-of-demo.iml
+/base/base.iml
+/mail/mail.iml
+/web/web.iml

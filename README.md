@@ -1,5 +1,6 @@
 # all-kinds-of-demo
 将各种工具封装起来，有什么需要都可以说！！！
+准备封装一个权限管理模块
 ```xml
 <parent>
     <groupId>org.example</groupId>
@@ -69,32 +70,16 @@ public class ProductService extends BaseService<Product> {
 
 }
 ```
-添加下面的配置项，项目启动后立即启动ActiveRecord
+实现IActiveRecordInit接口，调用_MappingKit.mapping(arp)完成映射。
 ```java
+/**
+ * @author zhoujx
+ */
 @Component
-@Order(value = 1)
-public class InitActiveRecord implements ApplicationRunner {
-
-    @Value("${active.record.jdbcUrl}")
-    private String url;
-
-    @Value("${active.record.user}")
-    private String username;
-
-    @Value("${active.record.password}")
-    private String password;
-
+public class MappingKit implements IActiveRecordInit {
     @Override
-    public void run(ApplicationArguments args){
-        initActiveRecord();
-    }
-
-    public void initActiveRecord() {
-        DruidPlugin dp = new DruidPlugin(url, username, password);
-        ActiveRecordPlugin arp = new ActiveRecordPlugin(dp);
+    public void addMapping(ActiveRecordPlugin arp) {
         _MappingKit.mapping(arp);
-        dp.start();
-        arp.start();
     }
 }
 ```
