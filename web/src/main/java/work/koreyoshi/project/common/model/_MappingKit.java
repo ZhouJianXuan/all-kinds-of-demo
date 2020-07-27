@@ -16,8 +16,6 @@ import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 public class _MappingKit {
 	
 	public static void mapping(ActiveRecordPlugin arp) {
-		arp.addMapping("mq_idempotent_consume_message", "id", MqIdempotentConsumeMessage.class);
-		arp.addMapping("mq_mandatory_message", "id", MqMandatoryMessage.class);
 		arp.addMapping("sys_account", "id", SysAccount.class);
 		// Composite Primary Key order: account_id,role_id
 		arp.addMapping("sys_account_role", "account_id,role_id", SysAccountRole.class);

@@ -19,6 +19,7 @@
         <module>mail</module>
         <module>base</module>
         <module>web</module>
+        <module>file</module>
     </modules>
 
     <properties>
@@ -29,6 +30,7 @@
         <jfinal.activereaord.version>4.9</jfinal.activereaord.version>
         <mysql.driver.verison>8.0.16</mysql.driver.verison>
         <alibaba.druid.version>1.0.29</alibaba.druid.version>
+        <all.kinds.version>1.0</all.kinds.version>
     </properties>
 
     <dependencies>
