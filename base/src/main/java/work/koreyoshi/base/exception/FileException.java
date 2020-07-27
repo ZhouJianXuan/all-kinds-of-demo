@@ -10,6 +10,10 @@ public class FileException extends BaseCustomException{
         this.code = code;
     }
 
+    public static FileException notExists(){
+        return new FileException("文件不存在", 20030);
+    }
+
     public static FileException readError(){
         return new FileException("文件读失败", 20010);
     }

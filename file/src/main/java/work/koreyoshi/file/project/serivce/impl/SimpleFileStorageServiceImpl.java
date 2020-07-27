@@ -82,7 +82,7 @@ public class SimpleFileStorageServiceImpl extends BaseService<FileStorage> imple
     @Override
     public String saveMultipartFile(MultipartFile file) {
         String name = file.getResource().getFilename();
-        String suffix = name.substring(name.lastIndexOf("."));
+        String suffix = name.substring(name.lastIndexOf(".") + 1);
         InputStream in = null;
         FileOutputStream os = null;
         String id = SequenceUtil.fastSimpleUUID();
@@ -136,7 +136,11 @@ public class SimpleFileStorageServiceImpl extends BaseService<FileStorage> imple
 
     @Override
     public File getFileById(String id) {
-
-        return null;
+        String path = basePath + "\\test";
+        File file = new File(path + File.separator + id);
+        if (file.exists()) {
+            return file;
+        }
+        throw FileException.notExists();
     }
 }

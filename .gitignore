@@ -28,3 +28,6 @@ hs_err_pid*
 /base/base.iml
 /mail/mail.iml
 /web/web.iml
+/file/file.iml
+/file/target/classes/META-INF/file.kotlin_module
+/file/src/test/java/work/koreyoshi/file/project/serivce/impl/SimpleFileStorageServiceImplTest.java
