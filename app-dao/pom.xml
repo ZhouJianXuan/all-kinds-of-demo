@@ -9,30 +9,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>web</artifactId>
+    <artifactId>app-dao</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>org.example</groupId>
-            <artifactId>app-service</artifactId>
+            <artifactId>base</artifactId>
             <version>${all.kinds.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-core -->
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-core</artifactId>
-            <version>${shiro.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-spring</artifactId>
-            <version>${shiro.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt</artifactId>
-            <version>${jwt.version}</version>
         </dependency>
     </dependencies>
 
@@ -48,4 +31,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

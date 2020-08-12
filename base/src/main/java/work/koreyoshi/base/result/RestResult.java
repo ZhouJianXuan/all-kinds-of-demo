@@ -8,6 +8,7 @@ import lombok.ToString;
 import work.koreyoshi.base.exception.BaseCustomException;
 
 import java.io.Serializable;
+import java.util.Map;
 
 /**
  * @author zhoujx

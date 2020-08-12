@@ -90,4 +90,5 @@ active.record.jdbcUrl=jdbc:mysql://localhost/zhou?characterEncoding=utf8&useSSL=
 active.record.user=root
 active.record.password=123456
 ```
-
+### file模块
+提供文件上传和下载功能

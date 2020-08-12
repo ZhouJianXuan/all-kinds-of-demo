@@ -19,6 +19,10 @@ public abstract class BaseCustomException extends RuntimeException {
     }
 
     public BaseCustomException() {
+        super();
     }
 
+    public BaseCustomException(String message, Exception e) {
+        super(message, e);
+    }
 }
