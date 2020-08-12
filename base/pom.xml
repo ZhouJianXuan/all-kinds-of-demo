@@ -27,29 +27,24 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>${lambok.version}</version>
         </dependency>
         <dependency>
             <groupId>com.jfinal</groupId>
             <artifactId>activerecord</artifactId>
-            <version>${jfinal.activereaord.version}</version>
         </dependency>
         <!-- mysql 驱动 -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql.driver.verison}</version>
         </dependency>
         <!-- druid 数据源连接池 -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>${alibaba.druid.version}</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>${fastjson.version}</version>
         </dependency>
     </dependencies>
 

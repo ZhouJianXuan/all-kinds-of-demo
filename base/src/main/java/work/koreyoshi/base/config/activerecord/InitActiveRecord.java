@@ -34,8 +34,7 @@ public class InitActiveRecord implements ApplicationRunner {
     public void initActiveRecord() {
         DruidPlugin dp = new DruidPlugin(url, username, password);
         ActiveRecordPlugin arp = new ActiveRecordPlugin("mysql", dp);
-        InterfaceDispatcher.build()
-                .collect(IActiveRecordInit.class)
+        InterfaceDispatcher.build().collect(IActiveRecordInit.class)
                 .forEach(e -> e.addMapping(arp));
         dp.start();
         arp.start();
