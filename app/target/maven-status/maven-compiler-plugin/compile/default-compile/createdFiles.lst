@@ -1,0 +1,5 @@
+work\koreyoshi\Application.class
+work\koreyoshi\controller\Node$NodeBuilder.class
+work\koreyoshi\controller\Node.class
+work\koreyoshi\config\ShiroConfig.class
+work\koreyoshi\controller\JsoupController.class

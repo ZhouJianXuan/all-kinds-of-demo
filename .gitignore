@@ -62,3 +62,5 @@ hs_err_pid*
 /../web-test/target/web-test-1.0-SNAPSHOT.jar.original
 /../web-test/target/classes/work/koreyoshi/project/handler/WebTestExceptionHandler.class
 /../web-test/target/classes/work/koreyoshi/project/controller/WeChatController.class
+/app/target/classes/application.yml
+/app/app.iml
