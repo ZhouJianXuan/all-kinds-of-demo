@@ -1,0 +1,8 @@
+active:
+  record:
+      jdbcUrl: jdbc:mysql://koreyoshi.work/zhou?characterEncoding=utf8&useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC
+      user: root
+      password: 123456
+
+server:
+  port: 8989

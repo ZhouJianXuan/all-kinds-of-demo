@@ -41,8 +41,8 @@ public class ShiroConfig {
 
         Map<String, String> filterMap = new LinkedHashMap<>();
         filterMap.put("/druid/**", "anon");
-        filterMap.put("/app/**", "anon");
-        filterMap.put("/**", "oauth2");
+        filterMap.put("/admin/**", "oauth2");
+        filterMap.put("/**", "anon");
 
         shiroFilter.setFilterChainDefinitionMap(filterMap);
         return shiroFilter;
