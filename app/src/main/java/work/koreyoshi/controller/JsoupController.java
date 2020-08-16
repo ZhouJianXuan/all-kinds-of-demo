@@ -9,6 +9,8 @@ import org.jsoup.select.Elements;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import work.koreyoshi.base.result.RestResult;
+import work.koreyoshi.entity.Node;
+import work.koreyoshi.utils.JsoupUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,9 +25,9 @@ public class JsoupController {
     private final static String BASE_PATH = "https://www.nfmovies.com";
 
     @GetMapping("/videos")
-    public RestResult search(String name) {
+    public RestResult search(String name) throws IOException {
         String url = BASE_PATH + "/search.php?page=1&searchword=" + name;
-        Document document = get(url);
+        Document document = JsoupUtil.get(url);
         Elements elements = document.select("li.active.clearfix");
         List<Node> nodes = new ArrayList<>();
         for (Element element : elements) {
@@ -42,28 +44,4 @@ public class JsoupController {
         }
         return RestResult.ok(nodes);
     }
-
-    public static Document get(String url) {
-        Document document = null;
-        try {
-            document = Jsoup.connect(url)
-                    .timeout(10000)
-                    .ignoreContentType(true)
-                    .userAgent("Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36")
-                    .get();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return document;
-    }
-}
-
-@Data
-@Builder
-class Node{
-    private String title;
-
-    private String url;
-
-    private List<String> content;
 }

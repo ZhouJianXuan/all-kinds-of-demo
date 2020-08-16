@@ -17,14 +17,6 @@ public abstract class BaseAccount<M extends BaseAccount<M>> extends Model<M> imp
 		return getStr("id");
 	}
 
-	public void setAppId(java.lang.String appId) {
-		set("app_id", appId);
-	}
-	
-	public java.lang.String getAppId() {
-		return getStr("app_id");
-	}
-
 	public void setCreateTime(java.util.Date createTime) {
 		set("create_time", createTime);
 	}
@@ -87,14 +79,6 @@ public abstract class BaseAccount<M extends BaseAccount<M>> extends Model<M> imp
 	
 	public java.lang.String getSalt() {
 		return getStr("salt");
-	}
-
-	public void setUserId(java.lang.String userId) {
-		set("user_id", userId);
-	}
-	
-	public java.lang.String getUserId() {
-		return getStr("user_id");
 	}
 
 	public void setLastLoginTime(java.util.Date lastLoginTime) {

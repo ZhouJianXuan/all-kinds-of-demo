@@ -1,0 +1,6 @@
+host = smtp.163.com
+port = 465
+from = 15521186429@163.com
+user = 15521186429@163.com
+pass = TUSBMQTELVVCAZPA
+starttlsEnable = true

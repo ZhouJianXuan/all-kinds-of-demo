@@ -11,7 +11,7 @@ public class _ModelGenerator {
 
 	public static void main(String[] args) {
 		ModelGeneratorFactory.builder()
-				.host("localhost")
+				.host("koreyoshi.work")
 				.database("zhou")
 				.user("root")
 				.password("123456")

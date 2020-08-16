@@ -1,6 +1,7 @@
 package work.koreyoshi.project.mail;
 
 import cn.hutool.extra.mail.MailUtil;
+import lombok.extern.slf4j.Slf4j;
 import work.koreyoshi.project.mail.annotation.SendMail;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -16,9 +17,8 @@ import java.util.Arrays;
 
 @Component
 @Aspect
+@Slf4j
 public class SendMailAspect {
-
-    static Logger LOGGER = LoggerFactory.getLogger(SendMailAspect.class);
 
     @Pointcut("@annotation(work.koreyoshi.project.mail.annotation.SendMail)")
     public void sendPoint() {
@@ -34,13 +34,12 @@ public class SendMailAspect {
         }
         String subject = (String) getParam(joinPoint, sendMail.title());
         String content = (String) getParam(joinPoint, sendMail.msg());
-        String[] tos = (String[]) getParam(joinPoint, sendMail.tos());
+        String tos = (String) getParam(joinPoint, sendMail.tos());
         try {
             assert tos != null;
-            MailUtil.sendText(Arrays.asList(tos), subject, content);
+            MailUtil.sendText(tos, subject, content);
         } catch (Exception e) {
-            LOGGER.info("EMail发送失败，收件人列表：" + Arrays.toString(tos) + "，标题和内容：" + subject + content);
-            throw SendException.sendMailError();
+            log.info("EMail发送失败，收件人列表：" + tos + "，标题和内容：" + subject + content);
         }
         return joinPoint.proceed(joinPoint.getArgs());
     }

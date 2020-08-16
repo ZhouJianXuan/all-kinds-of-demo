@@ -25,6 +25,7 @@ public class _MappingKit {
 		arp.addMapping("sys_role_permission", "permission_id,role_id", RolePermission.class);
 		arp.addMapping("sys_token", "user_id", Token.class);
 		arp.addMapping("tb_file_storage", "id", FileStorage.class);
+		arp.addMapping("tb_videos", "id", Videos.class);
 	}
 }
 

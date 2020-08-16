@@ -1,6 +1,8 @@
 package work.koreyoshi.project.controller;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import work.koreyoshi.base.result.RestResult;
 
 import java.util.Collections;
 
@@ -10,5 +12,6 @@ import java.util.Collections;
 @RestController
 public class LoginController {
 
-    
+
+
 }

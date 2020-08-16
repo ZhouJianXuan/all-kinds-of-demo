@@ -34,7 +34,7 @@ public class OAuth2Realm extends AuthorizingRealm {
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principal) {
         Account account = (Account) principal.getPrimaryPrincipal();
-        Set<String> permissions = shiroService.getUserPermissions(account.getUserId());
+        Set<String> permissions = shiroService.getUserPermissions(account.getId());
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
         info.setStringPermissions(permissions);
         return info;
