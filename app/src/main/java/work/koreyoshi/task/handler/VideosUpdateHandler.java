@@ -48,11 +48,8 @@ public class VideosUpdateHandler {
                         v.setAddress(address);
                         videosService.update(v);
                     }
-                    Document document;
-                    try {
-                        document = JsoupUtil.get(v.getAddress());
-                    } catch (IOException e) {
-                        log.info("获取videos失败，address:{}", v.getAddress());
+                    Document document = JsoupUtil.get(v.getAddress());
+                    if (document == null) {
                         return;
                     }
                     Element element = document.selectFirst("#playlist3");
@@ -71,18 +68,8 @@ public class VideosUpdateHandler {
 
     private String searchVideos(String name) {
         String url = VideosUrl.BASE_PATH + VideosUrl.SEARCH + name;
-        Document document;
-        try {
-            document = JsoupUtil.get(url);
-        } catch (IOException e) {
-            log.info("超时重试");
-            try {
-                document = JsoupUtil.get(url);
-            } catch (IOException ioException) {
-                log.info("重时失败");
-                return null;
-            }
-        }
+        Document document = JsoupUtil.get(url);
+
         Elements elements = document.select("li.active.clearfix");
         if (elements.hasText()) {
             Element element = elements.get(0);
@@ -93,16 +80,10 @@ public class VideosUpdateHandler {
     }
 
     public static void main(String[] args) {
-        Document document;
-        try {
-            document = JsoupUtil.get("https://www.nfmovies.com/detail/?54310.html");
-        } catch (IOException e) {
-            log.info("获取videos失败，address");
-            return;
-        }
+        Document document = JsoupUtil.get("https://www.nfmovies.com/detail/?54310.html");
         Element element = document.selectFirst("#playlist3");
         System.out.println(element);
         Elements l1 = element.select("li");
-        System.out.println(l1.get(l1.size()-1).selectFirst("a").attr("href"));
+        System.out.println(l1.get(l1.size() - 1).selectFirst("a").attr("href"));
     }
 }

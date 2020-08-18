@@ -19,7 +19,7 @@ public class InspectionUpdateTask {
     @Autowired
     private VideosUpdateHandler videosUpdateHandler;
 
-    @Scheduled(cron = "0 0 0/1 * * ?")
+    @Scheduled(cron = "0 0/5 * * * ?")
     public void task() {
         log.info("开始更新");
         videosUpdateHandler.searchVideoUpdate();
