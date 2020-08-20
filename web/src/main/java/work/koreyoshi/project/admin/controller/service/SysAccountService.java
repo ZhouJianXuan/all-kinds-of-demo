@@ -1,4 +1,4 @@
-package work.koreyoshi.project.file.service;
+package work.koreyoshi.project.admin.controller.service;
 
 import com.jfinal.plugin.activerecord.Model;
 import org.springframework.stereotype.Service;

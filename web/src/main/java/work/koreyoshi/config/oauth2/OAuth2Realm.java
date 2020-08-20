@@ -8,7 +8,7 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import work.koreyoshi.project.common.model.Token;
-import work.koreyoshi.project.file.service.ShiroService;
+import work.koreyoshi.project.admin.controller.service.ShiroService;
 import work.koreyoshi.project.common.model.Account;
 
 import java.util.Set;
