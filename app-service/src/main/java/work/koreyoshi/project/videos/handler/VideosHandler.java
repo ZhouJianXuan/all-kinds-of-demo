@@ -37,9 +37,13 @@ public class VideosHandler {
     }
 
     public void apply(Videos videos, String behavior) {
-        log.info("执行任务{}：{}", behavior, videos);
-        Consumer<Videos> objectConsumer =  initMap.get(videos.getBelongTo() + "_" + behavior);
-        objectConsumer.accept(videos);
+        if (videos.getIsEnd()) {
+            log.info("执行任务{}：{}", behavior, videos.getName());
+            Consumer<Videos> objectConsumer = initMap.get(videos.getBelongTo() + "_" + behavior);
+            objectConsumer.accept(videos);
+        } else {
+            log.info("{}已完结", videos.getName());
+        }
     }
 
     private final Consumer<Videos> naiFeiUpdate = v -> {
@@ -56,6 +60,10 @@ public class VideosHandler {
         if (document == null) {
             return;
         }
+        if (document.selectFirst("h1.title.text-fff").hasAttr("font")) {
+            log.info("已完结");
+            v.setIsEnd(true);
+        }
         Element element = document.selectFirst("#playlist3");
         Elements li = element.select("li");
         if (v.getCurrent() < li.size()) {
@@ -64,8 +72,8 @@ public class VideosHandler {
             String url = target.selectFirst("a").attr("href");
             v.setCurrent(li.size());
             MailUtil.sendText(v.getTos(), v.getName()+ "更新" + title, VideosUrl.BASE_NAIFEI_PATH + url);
-            videosService.update(v);
         }
+        videosService.update(v);
     };
 
     private String searchVideos(String name) {

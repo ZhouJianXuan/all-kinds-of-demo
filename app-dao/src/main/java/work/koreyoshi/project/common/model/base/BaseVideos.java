@@ -65,4 +65,12 @@ public abstract class BaseVideos<M extends BaseVideos<M>> extends Model<M> imple
 		return getStr("tos");
 	}
 
+	public void setIsEnd(java.lang.Boolean isEnd) {
+		set("is_end", isEnd);
+	}
+	
+	public java.lang.Boolean getIsEnd() {
+		return get("is_end");
+	}
+
 }
