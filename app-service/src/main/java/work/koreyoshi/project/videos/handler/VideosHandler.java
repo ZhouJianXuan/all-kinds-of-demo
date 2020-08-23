@@ -37,7 +37,7 @@ public class VideosHandler {
     }
 
     public void apply(Videos videos, String behavior) {
-        if (videos.getIsEnd()) {
+        if (!videos.getIsEnd()) {
             log.info("执行任务{}：{}", behavior, videos.getName());
             Consumer<Videos> objectConsumer = initMap.get(videos.getBelongTo() + "_" + behavior);
             objectConsumer.accept(videos);
@@ -60,7 +60,7 @@ public class VideosHandler {
         if (document == null) {
             return;
         }
-        if (document.selectFirst("h1.title.text-fff").hasAttr("font")) {
+        if ("完结".equals(document.selectFirst("h1.title.text-fff").selectFirst("font").text())) {
             log.info("已完结");
             v.setIsEnd(true);
         }
