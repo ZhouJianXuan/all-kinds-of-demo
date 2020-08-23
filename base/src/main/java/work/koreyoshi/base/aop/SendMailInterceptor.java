@@ -1,12 +1,12 @@
-package work.koreyoshi.project.mail.aop;
+package work.koreyoshi.base.aop;
 
 import cn.hutool.extra.mail.MailUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 import work.koreyoshi.base.exception.SendException;
-import work.koreyoshi.project.mail.MailInfo;
-import work.koreyoshi.project.mail.annotation.SendMail;
+import work.koreyoshi.base.MailInfo;
+import work.koreyoshi.base.annotation.SendMail;
 
 /**
  * @author zhoujx

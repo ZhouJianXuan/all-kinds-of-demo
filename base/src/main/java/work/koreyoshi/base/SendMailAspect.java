@@ -1,26 +1,26 @@
-package work.koreyoshi.project.mail;
+package work.koreyoshi.base;
 
 import cn.hutool.extra.mail.MailUtil;
 import lombok.extern.slf4j.Slf4j;
-import work.koreyoshi.project.mail.annotation.SendMail;
+import work.koreyoshi.base.annotation.SendMail;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import work.koreyoshi.base.exception.SendException;
 
 import java.lang.reflect.Field;
-import java.util.Arrays;
 
+/**
+ * @author zhoujx
+ */
 @Component
 @Aspect
 @Slf4j
 public class SendMailAspect {
 
-    @Pointcut("@annotation(work.koreyoshi.project.mail.annotation.SendMail)")
+    @Pointcut("@annotation(work.koreyoshi.base.annotation.SendMail)")
     public void sendPoint() {
 
     }

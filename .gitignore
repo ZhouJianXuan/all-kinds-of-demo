@@ -64,3 +64,4 @@ hs_err_pid*
 /../web-test/target/classes/work/koreyoshi/project/controller/WeChatController.class
 /app/target/classes/application.yml
 /app/app.iml
+/app/target/

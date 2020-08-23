@@ -1,4 +1,4 @@
-package work.koreyoshi.project.mail;
+package work.koreyoshi.base;
 
 import lombok.Data;
 

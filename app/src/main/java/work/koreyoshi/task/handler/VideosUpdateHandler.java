@@ -1,8 +1,6 @@
 package work.koreyoshi.task.handler;
 
-import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.shiro.event.Subscribe;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -12,13 +10,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import work.koreyoshi.constant.VideosUrl;
 import work.koreyoshi.project.common.model.Videos;
-import work.koreyoshi.project.common.model.base.BaseVideos;
 import work.koreyoshi.project.videos.VideosService;
 import work.koreyoshi.task.SendEmailTask;
 import work.koreyoshi.utils.JsoupUtil;
 
-import java.io.IOException;
-import java.net.SocketTimeoutException;
 import java.util.List;
 
 /**

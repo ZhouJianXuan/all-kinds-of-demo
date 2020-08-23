@@ -1,4 +1,4 @@
-package work.koreyoshi.project.mail.aop;
+package work.koreyoshi.base.aop;
 
 import org.aopalliance.aop.Advice;
 import org.springframework.aop.Pointcut;
@@ -7,7 +7,7 @@ import org.springframework.aop.support.annotation.AnnotationMatchingPointcut;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
-import work.koreyoshi.project.mail.annotation.SendMail;
+import work.koreyoshi.base.annotation.SendMail;
 
 import javax.validation.constraints.Null;
 

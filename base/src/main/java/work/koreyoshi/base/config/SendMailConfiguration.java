@@ -1,9 +1,9 @@
-package work.koreyoshi.project.mail.config;
+package work.koreyoshi.base.config;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
-import work.koreyoshi.project.mail.aop.SendMailAnnotationAdvisor;
-import work.koreyoshi.project.mail.aop.SendMailInterceptor;
+import work.koreyoshi.base.aop.SendMailAnnotationAdvisor;
+import work.koreyoshi.base.aop.SendMailInterceptor;
 
 //@Configuration
 public class SendMailConfiguration {

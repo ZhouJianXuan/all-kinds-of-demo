@@ -49,4 +49,20 @@ public abstract class BaseVideos<M extends BaseVideos<M>> extends Model<M> imple
 		return getInt("current");
 	}
 
+	public void setBelongTo(java.lang.String belongTo) {
+		set("belong_to", belongTo);
+	}
+	
+	public java.lang.String getBelongTo() {
+		return getStr("belong_to");
+	}
+
+	public void setTos(java.lang.String tos) {
+		set("tos", tos);
+	}
+	
+	public java.lang.String getTos() {
+		return getStr("tos");
+	}
+
 }

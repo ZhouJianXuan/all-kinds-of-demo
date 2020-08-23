@@ -47,6 +47,9 @@ public class OAuth2Realm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         String token = (String) authenticationToken.getPrincipal();
         Token first = shiroService.findToken(token);
+        if (first == null) {
+            throw new IncorrectCredentialsException("该用户不存在");
+        }
         if (first.getExpireTime().getTime() < System.currentTimeMillis()) {
             throw new IncorrectCredentialsException("token已失效，请重新登录");
         }

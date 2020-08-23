@@ -2,7 +2,7 @@ package work.koreyoshi.task;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import work.koreyoshi.project.mail.annotation.SendMail;
+import work.koreyoshi.base.annotation.SendMail;
 
 /**
  * @author zhoujx
