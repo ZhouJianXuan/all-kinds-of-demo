@@ -29,7 +29,7 @@
         <junit.version>4.12</junit.version>
         <mybatis.plus.version>3.3.2</mybatis.plus.version>
         <jfinal.activereaord.version>4.9</jfinal.activereaord.version>
-        <mysql.driver.verison>8.0.16</mysql.driver.verison>
+        <mysql.driver.verison>8.0.28</mysql.driver.verison>
         <alibaba.druid.version>1.0.29</alibaba.druid.version>
         <all.kinds.version>1.0</all.kinds.version>
         <fastjson.version>1.2.60</fastjson.version>
